@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> 
+pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Interface</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css" />
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/login.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
@@ -14,7 +16,7 @@ pageEncoding="UTF-8"%>
       <div class="login-form">
         <h1>Đăng nhập</h1>
 
-        <form action="login" method= "post" >
+        <form action="${ctx}/login" method="post">
           <div class="form-group">
             <input type="email" name="email" 
             			placeholder="Email" 
@@ -43,7 +45,7 @@ pageEncoding="UTF-8"%>
     </div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- Common Helper Functions -->
-	<script src="${pageContext.request.contextPath}/js/common.js"></script>
+	<script src="${ctx}/js/common.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>

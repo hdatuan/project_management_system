@@ -13,7 +13,7 @@ public class MySQLConfig {
 		try ( InputStream input = MySQLConfig.class.getClassLoader().getResourceAsStream("db.properties"))
 		{
 			if ( input == null ) {
-				System.out.println("Không tìm thấy file db.resources");
+				System.out.println("Không tìm thấy file db.properties");
 				return null;
 			}
 			

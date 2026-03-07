@@ -23,10 +23,9 @@ public class UserController extends HttpServlet {
 		
 		if ( req.getServletPath().equals("/user-delete") ) {
 			HttpSession session = req.getSession(false);
-			User user = (User) session.getAttribute("user");
-			int roleId = user.getRoleID();
-			if ( roleId != 1 ) {
-				resp.sendRedirect("404.jsp");
+			User user = session != null ? (User) session.getAttribute("user") : null;
+			if ( user == null || user.getRoleID() != 1 ) {
+				resp.sendRedirect(req.getContextPath() + "/404");
 				return;
 			}
 			int user_id =  Integer.parseInt(req.getParameter("id"));

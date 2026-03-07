@@ -13,6 +13,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
+    <base id="ctxBase" href="">
+    <script>
+    (function(){var p=window.location.pathname;var idx=p.indexOf('/',1);var ctx=(idx>=0?p.substring(0,idx):'');var b=document.getElementById('ctxBase');if(b)b.href=window.location.origin+ctx+'/';})();
+    </script>
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
     <title>Pixel Admin</title>
     <!-- Bootstrap Core CSS -->

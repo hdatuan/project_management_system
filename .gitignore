@@ -29,6 +29,7 @@ out/
 *.iml
 *.iws
 *.ipr
+.smarttomcat/
 
 # VS Code
 .vscode/

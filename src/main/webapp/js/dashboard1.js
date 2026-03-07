@@ -1,4 +1,4 @@
-Morris.Area({
+if (typeof Morris !== 'undefined') Morris.Area({
     element: 'morris-area-chart2',
     data: [{
         period: '2010',
@@ -52,7 +52,7 @@ Morris.Area({
 
 });
 
-$(".counter").counterUp({
+if (typeof $ !== 'undefined' && $.fn.counterUp) $(".counter").counterUp({
     delay: 100,
     time: 1200
 });

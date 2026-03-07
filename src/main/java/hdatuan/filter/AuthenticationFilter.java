@@ -23,24 +23,37 @@ public class AuthenticationFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 
-        String path = req.getRequestURI().substring(req.getContextPath().length());
+        String contextPath = req.getContextPath();
+        String uri = req.getRequestURI();
+        String path = (uri.length() > contextPath.length())
+                ? uri.substring(contextPath.length())
+                : (uri.equals(contextPath) || (contextPath.isEmpty() && "/".equals(uri)) ? "/" : uri);
+
         HttpSession session = req.getSession(false);
+        boolean isLoggedIn = (session != null && session.getAttribute("user") != null);
+
+        // Context root hoặc path rỗng: đã đăng nhập thì chuyển về /home
+        if (path.isEmpty() || "/".equals(path)) {
+            if (isLoggedIn) {
+                resp.sendRedirect(contextPath + "/home");
+                return;
+            }
+            resp.sendRedirect(contextPath + "/login");
+            return;
+        }
 
         boolean isLoginRequest = path.startsWith("/login");
-        boolean isStaticResource = path.startsWith("/css") || path.startsWith("/js") || path.startsWith("/images") 
+        boolean isStaticResource = path.startsWith("/css") || path.startsWith("/js") || path.startsWith("/images")
                                 || path.startsWith("/bootstrap") || path.startsWith("/plugins") || path.startsWith("/less")
-                                || path.endsWith(".css") || path.endsWith(".js") || path.endsWith(".png") 
+                                || path.endsWith(".css") || path.endsWith(".js") || path.endsWith(".png")
                                 || path.endsWith(".jpg") || path.endsWith(".jpeg") || path.endsWith(".gif")
                                 || path.endsWith(".ico") || path.endsWith(".woff") || path.endsWith(".woff2");
 
-        // Kiem tra da dang nhap chua : session != null va da co user
-        boolean isLoggedIn = ( session != null && session.getAttribute("user") != null);
-
-		if ( isLoggedIn || isLoginRequest || isStaticResource )  {
-			chain.doFilter(request, response);
-		} else {
-			resp.sendRedirect(req.getContextPath() + "/login");
-		}
+        if (isLoggedIn || isLoginRequest || isStaticResource) {
+            chain.doFilter(request, response);
+        } else {
+            resp.sendRedirect(contextPath + "/login");
+        }
 	}
 }
 

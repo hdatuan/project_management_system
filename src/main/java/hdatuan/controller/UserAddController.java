@@ -29,7 +29,7 @@ public class UserAddController extends HttpServlet {
 		String servletPath = req.getServletPath();
 	
 		if ( roleId != 1 && (servletPath.equals("/user-edit") || servletPath.equals("/user-add") ) ) {
-			resp.sendRedirect("404.jsp");
+			resp.sendRedirect(req.getContextPath() + "/404");
 			return;
 		}
 		List<Role> roles = roleService.getAllRoles();

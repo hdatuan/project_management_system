@@ -65,7 +65,7 @@ public class RoleAddController extends HttpServlet {
         User user = (User) (session != null ? session.getAttribute("user") : null);
 
         if (user == null || user.getRoleID() != 1) {
-            resp.sendRedirect("404.jsp");
+            resp.sendRedirect(req.getContextPath() + "/404");
             return;
         }
 

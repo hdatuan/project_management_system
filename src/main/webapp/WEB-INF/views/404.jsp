@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
     
 <!DOCTYPE html>
 <html lang="en">
@@ -13,17 +15,17 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href='<c:url value="/assets/plugins/images/favicon.png"></c:url>'
+      href="${ctx}/plugins/images/favicon.png"
     />
     <title>403 - Forbidden</title>
     <!-- Bootstrap Core CSS -->
-    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="${ctx}/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- animation CSS -->
-    <link href="css/animate.css" rel="stylesheet" />
+    <link href="${ctx}/css/animate.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="${ctx}/css/style.css" rel="stylesheet" />
     <!-- color CSS -->
-    <link href="css/colors/blue.css" id="theme" rel="stylesheet" />
+    <link href="${ctx}/css/colors/blue.css" id="theme" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -48,7 +50,7 @@
             YOU SEEM TO BE TRYING TO FIND HIS WAY HOME
           </p>
           <a
-            href="home"
+            href="${ctx}/home"
             class="btn btn-info btn-rounded waves-effect waves-light m-b-40"
             >Về trang chủ</a
           >
@@ -56,11 +58,11 @@
       </div>
     </section>
     <!-- jQuery -->
-    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="${ctx}/plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Common Helper Functions -->
-    <script src="js/common.js"></script>
+    <script src="${ctx}/js/common.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="${ctx}/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       $(function () {
         $(".preloader").fadeOut();
