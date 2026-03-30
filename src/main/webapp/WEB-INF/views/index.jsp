@@ -252,10 +252,6 @@
     <script src="${ctx}/js/custom.min.js"></script>
     <script src="${ctx}/js/dashboard1.js"></script>
     <script src="${ctx}/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-    <!-- Fallback: ẩn preloader sau 1.5s nếu script trước đó lỗi (vd: Morris, metisMenu) -->
-    <script>
-    (function(){ setTimeout(function(){ try { $(".preloader").fadeOut(200); } catch(e) { document.querySelector(".preloader") && (document.querySelector(".preloader").style.display="none"); } }, 1500); })();
-    </script>
 </body>
 
 </html>
