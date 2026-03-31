@@ -65,9 +65,18 @@ pageEncoding="UTF-8"%>
 
             <div class="field-group">
               <label for="password">Mật khẩu</label>
-              <div class="input-wrap">
+              <div class="input-wrap password-wrap">
                 <i class="fa-solid fa-lock"></i>
                 <input id="password" type="password" name="password" placeholder="Nhập mật khẩu" required />
+                <button
+                  id="togglePassword"
+                  class="toggle-password"
+                  type="button"
+                  aria-label="Hiện mật khẩu"
+                  aria-pressed="false"
+                >
+                  <i class="fa-regular fa-eye-slash"></i>
+                </button>
               </div>
             </div>
 
@@ -93,5 +102,26 @@ pageEncoding="UTF-8"%>
 	<script src="${ctx}/js/common.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+      (function () {
+        var passwordInput = document.getElementById('password');
+        var toggleBtn = document.getElementById('togglePassword');
+
+        if (!passwordInput || !toggleBtn) {
+          return;
+        }
+
+        toggleBtn.addEventListener('click', function () {
+          var isHidden = passwordInput.type === 'password';
+          passwordInput.type = isHidden ? 'text' : 'password';
+
+          toggleBtn.setAttribute('aria-pressed', isHidden ? 'true' : 'false');
+          toggleBtn.setAttribute('aria-label', isHidden ? 'Ẩn mật khẩu' : 'Hiện mật khẩu');
+          toggleBtn.innerHTML = !isHidden
+            ? '<i class="fa-regular fa-eye-slash"></i>'
+            : '<i class="fa-regular fa-eye"></i>';
+        });
+      })();
+    </script>
   </body>
 </html>
