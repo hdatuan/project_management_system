@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>hdatuan</groupId>
-    <artifactId>crm_app</artifactId>
+    <artifactId>pms_app</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>CRM Application</name>
-    <description>CRM Application - Java Servlet &amp; JSP</description>
+    <name>Project Management System</name>
+    <description>Project Management System - Java Servlet &amp; JSP</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

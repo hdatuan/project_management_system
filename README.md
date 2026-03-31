@@ -1,7 +1,7 @@
 <div align="center">
 
-# CRM Application
-### A Modern Customer Relationship Management System
+# Project Management System
+### A Modern Internal Work & Project Management Platform
 
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
 [![Servlet](https://img.shields.io/badge/Servlet-Using%20v3.1-orange?style=for-the-badge)](https://jakarta.ee/specifications/servlet/)
@@ -26,10 +26,10 @@
 ---
 
 ## Overview
-**CRM Application** is a robust, enterprise-grade project management tool designed to streamline internal operations. It bridges the gap between project managers and their teams by offering a centralized dashboard for tracking jobs, assigning tasks, and monitoring real-time progress.
+**Project Management System** is a robust, enterprise-grade internal management tool designed to streamline team operations. It provides a centralized dashboard for tracking jobs, assigning tasks, and monitoring real-time progress across departments.
 
 
-This application replaces scattered spreadsheets with a unified, role-based system that ensures data integrity and operational transparency.
+This application replaces scattered spreadsheets with a unified, role-based system that improves data integrity and operational transparency.
 
 ---
 
@@ -102,7 +102,7 @@ The project strictly follows the **Standard MVC (Model-View-Controller)** patter
     *   Right-click project -> `Run As` -> `Run on Server` -> Select Tomcat 9.0.
 
 4.  **Access the App**
-    *   Open Browser: `http://localhost:8080/crm_app`
+    *   Open Browser: `http://localhost:8080/pms_app`
     *   Default Admin Credentials: `admin@gmail.com` / `123456` (Example)
 
 ---
@@ -110,7 +110,7 @@ The project strictly follows the **Standard MVC (Model-View-Controller)** patter
 ## Project Structure
 
 ```bash
-crm_app/
+pms_app/  # Runtime artifactId/context-path
 ├── 📂 src/main/java/hdatuan   # Core Backend Logic
 │   ├── 📂 config              # DB Connections (MySQLConfig)
 │   ├── 📂 controller          # Servlets (Login, Task, User...)
