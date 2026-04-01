@@ -74,36 +74,51 @@ The project strictly follows the **Standard MVC (Model-View-Controller)** patter
 ## Getting Started
 
 ### Prerequisites
-*   [Java Development Kit (JDK 8+)](https://www.oracle.com/java/technologies/downloads/)
-*   [Apache Tomcat 9.0](https://tomcat.apache.org/download-90.cgi)
-*   [MySQL Server](https://dev.mysql.com/downloads/installer/)
-*   [Eclipse IDE for EE Developers](https://www.eclipse.org/downloads/packages/) (Recommended)
+*   JDK: [Java Development Kit (JDK 8+)](https://www.oracle.com/java/technologies/downloads/)
+*   Web Server: [Apache Tomcat 9.0](https://tomcat.apache.org/download-90.cgi)
+*   Database: [MySQL Server 8.0+](https://dev.mysql.com/downloads/installer/) (or run as a container on Docker)
+*   IDE: [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) (Ultimate Edition is recommended or Community Edition with Smart Tomcat plugin)
 
 ### Installation
 1.  **Clone the repository**
     ```sh
-    git clone https://github.com/hdatuan/CRM_Application.git
-    cd CRM_Application
+    git clone https://github.com/hdatuan/project_management_system.git
+    cd project_management_system
     ```
 
 2.  **Database Setup**
     *   Open MySQL Workbench or CLI.
-    *   Execute the script located at `/database/schema.sql` (if available) or create a database named `crm_app`.
+    *   Execute the script located at `/database/schema.sql` (if available) or create a database named `pms`.
     *   Update database credentials in `src/main/resources/db.properties`:
         ```properties
-        db.url=jdbc:mysql://localhost:3306/crm_app
+        db.url=jdbc:mysql://localhost:3306/pms
         db.user=root
         db.password=your_password
         ```
-
-3.  **IDE Setup (Eclipse)**
-    *   `File` -> `Import` -> `Existing Projects into Workspace`.
-    *   Select the root directory.
-    *   Right-click project -> `Run As` -> `Run on Server` -> Select Tomcat 9.0.
+    * Since you are working with Docker, you can quickly spin up the database environment without local installation using the following command:
+         ```bash
+      docker run --name pms-mysql -e MYSQL_ROOT_PASSWORD=your_password -e MYSQL_DATABASE=pms -p 3306:3306 -d mysql:8.0
+         ```
+       
+3.  **IDE Setup (IntelliJ IDEA)**
+    *   `File` -> `Open` and navigate to the project root directory.
+    *   `File` -> `Project Structure`.
+        * Under **Modules**, ensure `src/main/java` is marked as **Sources** and `src/main/webapp` is recognized as a **Web Resource Directory**.
+        * Under **Libraries**, click the **+** icon and add all `.jar` files from `src/main/webapp/WEB-INF/lib` to resolve dependencies.
+    * **Tomcat Server Setup**:
+        * Go to `Run` -> `Edit Configurations...`.
+        * Click the **+** icon, select **Tomcat Server** -> **Local**.
+        * In the **Server** tab, configure the path to your Tomcat 9.0 installation.
+        * In the **Deployment** tab, click **+** -> **Artifact** and select `pms:war exploded`.
+        * Set the **Application context** to `/pms`.
 
 4.  **Access the App**
-    *   Open Browser: `http://localhost:8080/pms_app`
-    *   Default Admin Credentials: `admin@gmail.com` / `123456` (Example)
+    * Click the **Run** icon in IntelliJ.  
+    * Open Browser: `http://localhost:8080/pms`
+    * **Default Credentials**:
+        * **Admin**: `admin@gmail.com` / `123456`
+        * **Manager**: `manager01@gmail.com` / `123456`
+        * **Staff**: `staff.dev01@gmail.com` / `123456`
 
 ---
 
