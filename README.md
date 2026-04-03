@@ -126,6 +126,8 @@ The project strictly follows the **Standard MVC (Model-View-Controller)** patter
 
 ```bash
 pms_app/  # Runtime artifactId/context-path
+├── 📂 database   # included sample database 
+│
 ├── 📂 src/main/java/hdatuan   # Core Backend Logic
 │   ├── 📂 config              # DB Connections (MySQLConfig)
 │   ├── 📂 controller          # Servlets (Login, Task, User...)
